@@ -4,7 +4,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import { useDispatch } from "react-redux";
 import { setCurrentSong } from "../features/currentSongSlice";
 function Card({ song }) {
-  // add song
+  
   const dispatch = useDispatch();
   const selectedSongHandler = () => {
     dispatch(
