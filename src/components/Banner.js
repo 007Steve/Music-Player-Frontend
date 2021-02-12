@@ -1,15 +1,32 @@
 import React from "react";
 import "../styles/Banner.css";
 import Nav from "./Nav";
+import {
+  selectcurrentSong,
+  setCurrentSong,
+} from "../features/currentSongSlice";
+import { useSelector } from "react-redux";
 function Banner() {
+  
+  const newCurrentSong = useSelector(selectcurrentSong);
+  console.log(newCurrentSong.setCurrentSong.artist);
   return (
-    <div className="banner">
-           <Nav/>
+    <div className={`banner ${newCurrentSong.setCurrentSong.artist}`}>
+      <Nav />
       <div className="banner__container">
-        <img className="banner__image shadow" src="https://upload.wikimedia.org/wikipedia/en/4/4c/Logic_No_Pressure_album_cover.jpeg" alt="" />
+        <img
+          className="banner__image shadow"
+          src={newCurrentSong.setCurrentSong.cover}
+          alt={newCurrentSong.setCurrentSong.artist}
+        />
         <div className="banner__songInfo">
-            <h1 className="banner__artist">Logic</h1>
-            <h2 className="banner__song">Amen</h2>
+          <h1 className="banner__artist">
+            {newCurrentSong.setCurrentSong.song}
+          </h1>
+
+          <h2 className="banner__song">
+            {newCurrentSong.setCurrentSong.artist}
+          </h2>
         </div>
       </div>
     </div>
