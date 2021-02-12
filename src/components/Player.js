@@ -5,18 +5,25 @@ import PauseCircleFilledOutlinedIcon from "@material-ui/icons/PauseCircleFilledO
 import SkipNextOutlinedIcon from "@material-ui/icons/SkipNextOutlined";
 import SkipPreviousOutlinedIcon from "@material-ui/icons/SkipPreviousOutlined";
 import VolumeUpOutlinedIcon from "@material-ui/icons/VolumeUpOutlined";
+import {
+  selectcurrentSong,
+  setCurrentSong,
+} from "../features/currentSongSlice";
+import { useSelector } from "react-redux";
 function Player() {
+  // add current songs and redux
+  const newCurrentSong = useSelector(selectcurrentSong);
   return (
     <div className="player">
       <div className="player__left">
         <img
           className="player__image"
-          src="https://upload.wikimedia.org/wikipedia/en/4/4c/Logic_No_Pressure_album_cover.jpeg"
+          src={newCurrentSong.setCurrentSong.cover}
           alt=""
         />
         <div className="player__songInfo">
-          <h3>Amen</h3>
-          <p>Logic</p>
+          <h3>{newCurrentSong.setCurrentSong.song}</h3>
+          <p>{newCurrentSong.setCurrentSong.artist}</p>
         </div>
       </div>
       <div className="player__center">
@@ -33,14 +40,21 @@ function Player() {
         </div>
         <div className="player__control">
           <p className="player__time">1:32</p>
-          <input className="songControl"min="" max="" value="" onChange="" type="range" />
+          <input
+            className={`songControl ${newCurrentSong.setCurrentSong.artist}`}
+            min=""
+            max=""
+            value=""
+            onChange=""
+            type="range"
+          />
           <p className="player__time">2:46</p>
         </div>
       </div>
       <div className="player__right">
         <VolumeUpOutlinedIcon className="" />
         <input
-          className="player__volume"
+          className={`player__volume ${newCurrentSong.setCurrentSong.artist}`}
           min=""
           max=""
           value=""
