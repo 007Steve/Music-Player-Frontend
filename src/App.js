@@ -46,8 +46,13 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          {/* {!user ? <Redirect to="/" /> : <Redirect to="/login" />} */}
-          <Route exact path="/" component={Home} />
+          
+
+          <Route exact path="/">
+            {true? <Redirect to="/login" /> : <Redirect to="/home" />}
+
+          </Route>
+          <Route exact path="/dashboard" component={Home} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/login" component={Login} />
         </Switch>
