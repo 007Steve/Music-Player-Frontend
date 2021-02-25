@@ -49,7 +49,7 @@ function App() {
           
 
           <Route exact path="/">
-            {true? <Redirect to="/login" /> : <Redirect to="/home" />}
+            {true? <Redirect to="/login" /> : <Redirect to="/dashboard" />}
 
           </Route>
           <Route exact path="/dashboard" component={Home} />
