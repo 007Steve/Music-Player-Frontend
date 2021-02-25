@@ -28,7 +28,7 @@ function Login() {
     {
       user ? <Redirect to="/" /> : <Redirect to="/login" />;
     }
-    history.push("/");
+    history.push("/dashboard");
   };
   return (
     <div className="form__div">
