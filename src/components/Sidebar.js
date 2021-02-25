@@ -5,8 +5,18 @@ import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
+import { useHistory } from "react-router-dom";
 import "../styles/Sidebar.css";
 function Sidebar() {
+  let history = useHistory();
+  const signout = async() => {
+    await fetch("http://localhost:5000/api/logout", {
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+    });
+    history.push("/login");
+  };
+ 
   return (
     <div className="sidebar">
       <div className="sidebar__imageContainer">
@@ -47,7 +57,7 @@ function Sidebar() {
         </div>
         <div className="sidebar__options">
           <ExitToAppIcon />
-          <h4>Log Out</h4>
+          <h4 onClick={signout}>Log Out</h4>
         </div>
       </div>
     </div>
