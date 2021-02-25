@@ -1,15 +1,12 @@
 import React from "react";
 import "../styles/Banner.css";
 import Nav from "./Nav";
-import {
-  selectcurrentSong,
-  setCurrentSong,
-} from "../features/currentSongSlice";
+import { selectcurrentSong } from "../features/currentSongSlice";
 import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 function Banner() {
-  
   const newCurrentSong = useSelector(selectcurrentSong);
-  console.log(newCurrentSong.setCurrentSong.artist);
+  
   return (
     <div className={`banner ${newCurrentSong.setCurrentSong.artist}`}>
       <Nav />
@@ -30,6 +27,7 @@ function Banner() {
         </div>
       </div>
     </div>
+    
   );
 }
 
