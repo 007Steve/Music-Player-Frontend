@@ -1,0 +1,10 @@
+.home {
+}
+.home__container {
+  display: flex;
+  background-color: blueviolet;
+}
+.songContainer {
+  display: flex;
+  flex-direction: column;
+}

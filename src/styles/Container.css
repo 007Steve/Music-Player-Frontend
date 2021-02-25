@@ -1,0 +1,17 @@
+.container {
+  background-color: #000000;
+  flex: 1;
+  z-index: 10000px;
+}
+.container__songContainer {
+  background-color: crimson;
+  height: 39vh;
+  max-height: 59vh;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  overflow-y: scroll;
+}
+.container__songContainer::-webkit-scrollbar {
+  display: none;
+}

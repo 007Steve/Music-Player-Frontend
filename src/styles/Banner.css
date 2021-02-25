@@ -1,0 +1,61 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 45vh;
+  color: rgb(255, 255, 255);
+  /* background-color: #ef680e; */
+
+  border: solid rgba(#000, 0.2);
+}
+.banner__container {
+  display: flex;
+  align-items: center;
+}
+.banner__image {
+  height: 190px;
+  margin: 2rem;
+}
+.banner__artist {
+  font-size: 4rem;
+}
+.banner__songInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  text-align: left;
+}
+.shadow {
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 3px 3px 5px 6px #ccc; /* Firefox 3.5 - 3.6 */
+  box-shadow: 3px 3px 58px 16px rgba(0, 0, 0, 0.438);
+}
+
+/* add styles for song */
+.Swørn {
+  background-color: #c94043;
+  background-image: linear-gradient(0deg, #c94043 0%, #cd607d 100%);
+}
+.Aiguille {
+  background-color: #ef8ea9;
+  background-image: linear-gradient(180deg, #ef8ea9 0%, #ab417f 100%);
+}
+.Logic {
+  background-color: #ef680e;
+  background-image: linear-gradient(0deg, #ef680e 0%, #f2a400 100%);
+}
+.Kupla{
+  background-color: #fc6f86;
+background-image: linear-gradient(160deg, #fc6f86 0%, #220682 100%);
+
+}
+.chromonicci{
+  background-color: #2a5664;
+background-image: linear-gradient(0deg, #2a5664 0%, #4a9090 100%);
+
+}
+.Monma{
+  background-color: #1827eb;
+background-image: linear-gradient(0deg, #1827eb 0%, #f47bfc 100%);
+
+}

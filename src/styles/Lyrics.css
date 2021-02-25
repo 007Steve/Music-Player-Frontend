@@ -1,0 +1,15 @@
+.lyrics {
+  color: white;
+}
+.lyrics__texts {
+  text-align: center;
+  line-height: 2em;
+  width: 50%;
+  margin: 0 auto;
+  font-weight: 700;
+  overflow-y: scroll;
+  height: 40vh;
+}
+.lyrics__texts::-webkit-scrollbar {
+  display: none;
+}
