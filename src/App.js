@@ -5,32 +5,53 @@ import { setCurrentSong } from "./features/currentSongSlice";
 import { songs, selectSongs } from "./features/songsSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { login, selectUser } from "./features/userSlice";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
+import axios from "axios";
+axios.defaults.withCredentials = true;
 function App() {
-
-  const currentSongS = useSelector(selectSongs);
-  useEffect(() => {
-    fetch('https://api.lyrics.ovh/v1/logic/amen')
-    .then(response => response.json())
-    .then(data => console.log(data));
-  }, [])
-
+  const user = useSelector(selectUser);
   //DISPATCH
   const dispatch = useDispatch();
-// add song data and redux
+  const currentSongS = useSelector(selectSongs);
+  const newcurrentSong = currentSongS[0];
+  console.log(newcurrentSong)
   useEffect(() => {
+    // add song data and redux
     fetch("http://localhost:5000/api/songs")
       .then((response) => response.json())
       .then((data) => dispatch(songs(data)));
-  }, []);
+
+    fetch("http://localhost:5000/api/user", {
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((data) => dispatch(login(data)));
+  },[dispatch] );
   //DISPATCH CURRENT SONG
   dispatch(
     setCurrentSong({
-      setCurrentSong: currentSongS,
+      setCurrentSong: newcurrentSong,
     })
   );
   return (
     <div className="App">
-      <Home />
+      <Router>
+        <Switch>
+          {/* {!user ? <Redirect to="/" /> : <Redirect to="/login" />} */}
+          <Route exact path="/" component={Home} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/login" component={Login} />
+        </Switch>
+      </Router>
     </div>
   );
 }
