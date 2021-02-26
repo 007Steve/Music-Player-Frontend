@@ -1,40 +1,39 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { login, selectUser } from "../features/userSlice";
-import { Redirect } from "react-router-dom";
 import "../styles/Login.css";
+import axios from "axios";
 function Login() {
-  const user = useSelector(selectUser);
+//State
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  let history = useHistory();
-  console.log(email);
-  const register = (e) => {
+  const [errorMessage, setErrorMessage] = useState("");
+  const history = useHistory();
+// Login
+  const login = async (e) => {
     e.preventDefault();
+
+    const loginData = {
+      email,
+      password,
+    };
     try {
-      fetch("http://localhost:5000/api/login", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
+      await axios.post("http://localhost:5000/api/login", loginData);
     } catch (error) {
-      return console.log(error);
+      if (error.response) {
+        if (error.response.data) {
+          setErrorMessage(error.response.data);
+        }
+      }
+      return;
     }
-    {
-      user ? <Redirect to="/" /> : <Redirect to="/login" />;
-    }
+
     history.push("/dashboard");
   };
   return (
     <div className="form__div">
-      <form action="" onSubmit={register} className="form">
+      <form action="" onSubmit={login} className="form">
         <h1 className="form__title">Login</h1>
-
+        <h4 className="form__error">{errorMessage}</h4>
         <label htmlFor="Email"></label>
         <input
           className="form__input"
@@ -60,3 +59,4 @@ function Login() {
 }
 
 export default Login;
+
