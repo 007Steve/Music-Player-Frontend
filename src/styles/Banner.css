@@ -44,18 +44,28 @@
   background-color: #ef680e;
   background-image: linear-gradient(0deg, #ef680e 0%, #f2a400 100%);
 }
-.Kupla{
+.Kupla {
   background-color: #fc6f86;
-background-image: linear-gradient(160deg, #fc6f86 0%, #220682 100%);
-
+  background-image: linear-gradient(160deg, #fc6f86 0%, #220682 100%);
 }
-.chromonicci{
+.chromonicci {
   background-color: #2a5664;
-background-image: linear-gradient(0deg, #2a5664 0%, #4a9090 100%);
-
+  background-image: linear-gradient(0deg, #2a5664 0%, #4a9090 100%);
 }
-.Monma{
+.Monma {
   background-color: #1827eb;
-background-image: linear-gradient(0deg, #1827eb 0%, #f47bfc 100%);
+  background-image: linear-gradient(0deg, #1827eb 0%, #f47bfc 100%);
+}
 
+@media only screen and (max-width: 600px) {
+  .banner__container {
+    width: 40%;
+  }
+  .banner__image{
+
+height: 90px;
+  }
+  .banner__songInfo{
+    margin: 0;
+  }
 }

@@ -4,17 +4,13 @@
   /* justify-content: space-between; */
   background-color: #181818;
   color: rgb(255, 255, 255);
-  position: absolute;
-  bottom: 0;
-  min-width: 100vw;
-  z-index: 100px;
+  width: 100vw;
   border-top: 1px solid rgba(179, 176, 176, 0.116);
 }
 .player__left {
   display: flex;
-  align-items: center; 
+  align-items: center;
   min-width: 20%;
-  
 }
 .player__songInfo {
   display: flex;

@@ -5,8 +5,7 @@
 }
 .container__songContainer {
   background-color: crimson;
-  height: 39vh;
-  max-height: 59vh;
+  /* height: 50vh; */
   background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -15,3 +14,4 @@
 .container__songContainer::-webkit-scrollbar {
   display: none;
 }
+/* mobile */
