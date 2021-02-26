@@ -3,10 +3,10 @@ import "../styles/Banner.css";
 import Nav from "./Nav";
 import { selectcurrentSong } from "../features/currentSongSlice";
 import { useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+
 function Banner() {
   const newCurrentSong = useSelector(selectcurrentSong);
-  
+
   return (
     <div className={`banner ${newCurrentSong.setCurrentSong.artist}`}>
       <Nav />
@@ -27,7 +27,6 @@ function Banner() {
         </div>
       </div>
     </div>
-    
   );
 }
 
