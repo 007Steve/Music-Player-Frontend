@@ -3,11 +3,12 @@ import "../styles/Options.css";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import {
   selectcurrentSong,
-  setCurrentSong,
+ 
 } from "../features/currentSongSlice";
 import { useSelector } from "react-redux";
 function Options() {
   const newCurrentSong = useSelector(selectcurrentSong);
+  
   return (
     <div className="options">
       <button
