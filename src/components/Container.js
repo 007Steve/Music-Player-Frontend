@@ -17,14 +17,6 @@ function Container() {
         <Lyrics />
       ) : (
         <div className="container__songContainer">
-          <Card
-            artist="Amen"
-            time="3:04"
-            image="https://upload.wikimedia.org/wikipedia/en/4/4c/Logic_No_Pressure_album_cover.jpeg"
-            album="Logic"
-            song=""
-          />
-
           {songs.map((song) => (
             <Card key={song.id} song={song} />
           ))}
