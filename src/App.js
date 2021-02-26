@@ -18,24 +18,26 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 function App() {
   const user = useSelector(selectUser);
-  //DISPATCH
   const dispatch = useDispatch();
   const currentSongS = useSelector(selectSongs);
   const newcurrentSong = currentSongS[0];
-  console.log(newcurrentSong)
+  // Add song data to redux
+  const getSongs = async () => {
+    await axios
+      .get("http://localhost:5000/api/songs")
+      .then((data) => dispatch(songs(data.data)));
+  };
+  // Add user data to redux
+  const getUser = async () => {
+    await axios
+      .get("http://localhost:5000/api/user")
+      .then((data) => dispatch(login(data.data)));
+  };
+  //UseEffect
   useEffect(() => {
-    // add song data and redux
-    fetch("http://localhost:5000/api/songs")
-      .then((response) => response.json())
-      .then((data) => dispatch(songs(data)));
-
-    fetch("http://localhost:5000/api/user", {
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((data) => dispatch(login(data)));
-  },[dispatch] );
+    getSongs();
+    getUser();
+  }, []);
   //DISPATCH CURRENT SONG
   dispatch(
     setCurrentSong({
@@ -46,11 +48,8 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          
-
           <Route exact path="/">
-            {true? <Redirect to="/login" /> : <Redirect to="/dashboard" />}
-
+            {true ? <Redirect to="/login" /> : <Home />}
           </Route>
           <Route exact path="/dashboard" component={Home} />
           <Route exact path="/signup" component={SignUp} />
