@@ -24,13 +24,13 @@ function App() {
   // Add song data to redux
   const getSongs = async () => {
     await axios
-      .get("http://localhost:5000/api/songs")
+      .get("https://music-player-apps.herokuapp.com/api/songs")
       .then((data) => dispatch(songs(data.data)));
   };
   // Add user data to redux
   const getUser = async () => {
     await axios
-      .get("http://localhost:5000/api/user")
+      .get("https://music-player-apps.herokuapp.com/api/user")
       .then((data) => dispatch(login(data.data)));
   };
   //UseEffect

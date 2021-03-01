@@ -10,7 +10,7 @@ import "../styles/Sidebar.css";
 function Sidebar() {
   let history = useHistory();
   const signout = async() => {
-    await fetch("http://localhost:5000/api/logout", {
+    await fetch("https://music-player-apps.herokuapp.com/api/logout", {
       credentials: "include",
       headers: { "Content-Type": "application/json" },
     });

@@ -21,7 +21,7 @@ function SignUp() {
       password,
     };
     try {
-      await axios.post("http://localhost:5000/api/signup", signUpData);
+      await axios.post("https://music-player-apps.herokuapp.com/api/signup", signUpData);
     } catch (error) {
       if (error.response) {
         if (error.response.data) {
