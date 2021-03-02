@@ -21,7 +21,10 @@ function SignUp() {
       password,
     };
     try {
-      await axios.post("https://music-player-apps.herokuapp.com/api/signup", signUpData);
+      await axios.post(
+        "https://music-player-apps.herokuapp.com/api/signup",
+        signUpData
+      );
     } catch (error) {
       if (error.response) {
         if (error.response.data) {
@@ -31,7 +34,7 @@ function SignUp() {
       return;
     }
 
-    history.push("/dashboard");
+    history.push("/login");
   };
   return (
     <div className="signup">
@@ -66,7 +69,7 @@ function SignUp() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button type="submit" className="btn-grad">
-            Login
+            Sign Up
           </button>
           <p className="form__link">
             Already have an
