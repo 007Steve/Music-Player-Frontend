@@ -2,12 +2,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
- 
+  min-height: 100vh;
 }
 .home__container {
   display: flex;
   background-color: blueviolet;
-
 }
 .songContainer {
   display: flex;
