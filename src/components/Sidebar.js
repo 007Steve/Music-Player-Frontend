@@ -7,16 +7,30 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 import { useHistory } from "react-router-dom";
 import "../styles/Sidebar.css";
+import axios from "axios";
+axios.defaults.withCredentials = true;
 function Sidebar() {
   let history = useHistory();
-  const signout = async() => {
-    await fetch("https://music-player-apps.herokuapp.com/api/logout", {
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-    });
+
+  // SignOut Data
+  const signout = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.get("http://localhost:5000/api/logout", {
+        withCredentials: true,
+      });
+    } catch (error) {
+      if (error.response) {
+        if (error.response.data) {
+          console.log(error.response.data);
+        }
+      }
+      return;
+    }
+
     history.push("/login");
   };
- 
   return (
     <div className="sidebar">
       <div className="sidebar__imageContainer">
