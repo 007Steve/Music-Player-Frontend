@@ -34,7 +34,7 @@ function SignUp() {
       return;
     }
 
-    history.push("/login");
+    history.push("/dashboard");
   };
   return (
     <div className="signup">
